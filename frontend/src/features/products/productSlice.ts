@@ -1,6 +1,6 @@
 import {createSlice} from "@reduxjs/toolkit";
 import {RootState} from "../../app/store.ts";
-import {fetchProducts, fetchProductsByCategory} from "./productThunk.ts";
+import {addNewProduct, fetchProducts, fetchProductsByCategory} from "./productThunk.ts";
 
 
 export interface IProduct {
@@ -58,6 +58,17 @@ export const productSlice = createSlice({
                 state.products = action.payload;
             })
             .addCase(fetchProductsByCategory.rejected, (state) => {
+                state.isLoading = false;
+                state.error = true;
+            })
+            .addCase(addNewProduct.pending, (state) => {
+                state.isLoading = true;
+                state.error = false;
+            })
+            .addCase(addNewProduct.fulfilled, (state) => {
+                state.isLoading = false;
+            })
+            .addCase(addNewProduct.rejected, (state) => {
                 state.isLoading = false;
                 state.error = true;
             });

@@ -6,6 +6,7 @@ import {Alert, Container} from "@mui/material";
 import Grid from "@mui/material/Grid2";
 import ProductsPage from "./features/products/ProductsPage.tsx";
 import Categories from "./features/categories/Categories.tsx";
+import ProductForm from "./features/products/components/ProductForm.tsx";
 
 const App = () => {
     return (
@@ -23,6 +24,7 @@ const App = () => {
                             <Routes>
                                 <Route path="/" element={<ProductsPage />} />
                                 <Route path="products/:categoryId" element={<ProductsPage />} />
+                                <Route path="/add_product" element={<ProductForm />} />
                                 <Route path="/register" element={<RegisterPage />} />
                                 <Route path="/login" element={<LoginPage />} />
                                 <Route path="*" element={<Alert severity="error">Page Not Found</Alert>} />

@@ -17,7 +17,7 @@ productsRouter.post("/", auth, imagesUpload.single('image'),  async (req, res, n
             return;
         }
 
-        const { title, description, price, category, image }: ProductFields = req.body;
+        const { title, description, price, category }: ProductFields = req.body;
 
         if (!title || !description || !price || !category || !req.file) {
             res.status(400).json({ message: "All fields are required, including image" });
@@ -52,6 +52,7 @@ productsRouter.get("/", async (req, res, next) => {
         const filter = categoryId ? { category: categoryId } : {};
 
         const products = await Product.find(filter)
+            .sort({ createdAt: -1 })
             .populate("category", "name")
             .exec();
 

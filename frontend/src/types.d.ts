@@ -38,3 +38,19 @@ export interface ValidationError {
 export interface GlobalError {
   error: string;
 }
+
+export interface Product {
+  category: string;
+  title: string;
+  image: File | null;
+  description: string;
+  price: number;
+}
+
+export interface ProductMutation {
+  title: string;
+  description: string;
+  image: File | null;
+  category: string;
+  price: number;
+}

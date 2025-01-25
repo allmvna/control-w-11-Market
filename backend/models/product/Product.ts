@@ -30,7 +30,7 @@ const ProductSchema = new mongoose.Schema<ProductFields>({
         type: String,
         default: null,
     }
-});
+}, { timestamps: true });
 
 const Product = mongoose.model('Product', ProductSchema);
 export default Product;
