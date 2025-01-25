@@ -13,6 +13,15 @@ export const fetchProducts = createAsyncThunk<IProduct[], void>(
     },
 );
 
+export const getProductDetails = createAsyncThunk<IProduct, string>(
+    "products/getProductDetails",
+    async (id) => {
+        const { data } = await axiosAPI.get<IProduct>(`/products/${id}`);
+        return data;
+    },
+);
+
+
 export const fetchProductsByCategory = createAsyncThunk<IProduct[], string>(
     "products/fetchByCategory",
     async (categoryId) => {

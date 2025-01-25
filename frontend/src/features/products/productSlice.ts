@@ -1,12 +1,15 @@
 import {createSlice} from "@reduxjs/toolkit";
 import {RootState} from "../../app/store.ts";
-import {addNewProduct, fetchProducts, fetchProductsByCategory} from "./productThunk.ts";
+import {addNewProduct, fetchProducts, fetchProductsByCategory, getProductDetails} from "./productThunk.ts";
 
 
 export interface IProduct {
     _id: string;
     category: string;
-    user: { username: string };
+    user: {
+        displayName: string;
+        phoneNumber: string;
+    };
     title: string;
     image: string | null;
     description: string;
@@ -15,17 +18,20 @@ export interface IProduct {
 
 interface ProductState {
     products: IProduct[];
+    productDetails: IProduct | null;
     isLoading: boolean;
     error: boolean;
 }
 
 const initialState: ProductState = {
     products: [],
+    productDetails: null,
     isLoading: false,
     error: false,
 };
 
 export const selectProduct = (state: RootState) => state.products.products;
+export const selectProductDetails = (state: RootState) => state.products.productDetails;
 export const selectLoading = (state: RootState) => state.products.isLoading;
 export const selectError = (state: RootState) => state.products.error;
 
@@ -69,6 +75,18 @@ export const productSlice = createSlice({
                 state.isLoading = false;
             })
             .addCase(addNewProduct.rejected, (state) => {
+                state.isLoading = false;
+                state.error = true;
+            })
+            .addCase(getProductDetails.pending, (state) => {
+                state.isLoading = true;
+                state.error = false;
+            })
+            .addCase(getProductDetails.fulfilled, (state, action) => {
+                state.isLoading = false;
+                state.productDetails = action.payload;
+            })
+            .addCase(getProductDetails.rejected, (state) => {
                 state.isLoading = false;
                 state.error = true;
             });

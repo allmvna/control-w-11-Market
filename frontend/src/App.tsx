@@ -7,6 +7,7 @@ import Grid from "@mui/material/Grid2";
 import ProductsPage from "./features/products/ProductsPage.tsx";
 import Categories from "./features/categories/Categories.tsx";
 import ProductForm from "./features/products/components/ProductForm.tsx";
+import ProductDetails from "./features/products/ProductDetails.tsx";
 
 const App = () => {
     return (
@@ -23,7 +24,8 @@ const App = () => {
                         <Grid size={9}>
                             <Routes>
                                 <Route path="/" element={<ProductsPage />} />
-                                <Route path="products/:categoryId" element={<ProductsPage />} />
+                                <Route path="/products/:categoryId" element={<ProductsPage />} />
+                                <Route path="/products/:id" element={<ProductDetails />} />
                                 <Route path="/add_product" element={<ProductForm />} />
                                 <Route path="/register" element={<RegisterPage />} />
                                 <Route path="/login" element={<LoginPage />} />

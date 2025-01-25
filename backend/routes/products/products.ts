@@ -54,6 +54,7 @@ productsRouter.get("/", async (req, res, next) => {
         const products = await Product.find(filter)
             .sort({ createdAt: -1 })
             .populate("category", "name")
+            .populate("user", "displayName phoneNumber")
             .exec();
 
         if (products.length === 0) {
@@ -67,7 +68,29 @@ productsRouter.get("/", async (req, res, next) => {
     }
 });
 
-productsRouter.delete("/:productId", auth, async (req, res, next) => {
+productsRouter.get("/:id", async (req, res, next) => {
+    try {
+        const { id } = req.params;
+
+        const product = await Product.findById(id)
+            .populate("category", "name")
+            .populate("user", "displayName phoneNumber")
+            .exec();
+
+        if (!product) {
+            res.status(404).json({ message: "Product not found." });
+            return;
+        }
+
+        res.status(200).json(product);
+        return;
+    } catch (error) {
+        next(error);
+    }
+});
+
+
+productsRouter.delete("/:id", auth, async (req, res, next) => {
     const { productId } = req.params;
     const expressReq = req as RequestWithUser;
     const user = expressReq.user;

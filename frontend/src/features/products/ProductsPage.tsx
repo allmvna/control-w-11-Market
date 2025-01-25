@@ -5,7 +5,7 @@ import {useAppDispatch, useAppSelector} from "../../app/hooks.ts";
 import axiosAPI from "../../axiosAPI.ts";
 import {fetchProducts, fetchProductsByCategory} from "./productThunk.ts";
 import {selectError, selectLoading, selectProduct} from "./productSlice.ts";
-import {useParams} from "react-router-dom";
+import {Link, useParams} from "react-router-dom";
 
 
 const ProductsPage = React.memo(() => {
@@ -58,6 +58,10 @@ const ProductsPage = React.memo(() => {
             <Grid container spacing={2} sx={{ mt: 4 }}>
                 {products.map((product) => (
                     <Grid size={4} key={product._id}>
+                        <Link
+                            to={`/products/${product._id}`}
+                            style={{ textDecoration: "none" }}
+                        >
                         <Card
                             sx={{
                                 width: "100%",
@@ -100,6 +104,7 @@ const ProductsPage = React.memo(() => {
                                 </Typography>
                             </CardContent>
                         </Card>
+                        </Link>
                     </Grid>
                 ))}
             </Grid>
