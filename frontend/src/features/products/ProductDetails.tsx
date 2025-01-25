@@ -20,6 +20,7 @@ const ProductDetails = () => {
         }
     }, [id, dispatch]);
 
+
     if (isLoading) {
         return (
             <div style={{ display: "flex", justifyContent: "center", alignItems: "center", height: "100vh" }}>
@@ -35,6 +36,7 @@ const ProductDetails = () => {
             </Alert>
         );
     }
+
 
     if (!productDetails) {
         return (
@@ -84,12 +86,12 @@ const ProductDetails = () => {
                         {productDetails.description}
                     </Typography>
                     <Typography variant="body1" mt={2}>
-                        {productDetails.price}
+                       Price: {productDetails.price}
                     </Typography>
-                    <Typography variant="body1" mt={2}>
-                        {productDetails.category}
+                    <Typography variant="body1" mt={2} mb={1}>
+                        Category: {productDetails.category.name}
                     </Typography>
-                    <Typography variant="body2">
+                    <Typography variant="body1" color='success'>
                         {productDetails.user.displayName} ({productDetails.user.phoneNumber})
                     </Typography>
                 </CardContent>

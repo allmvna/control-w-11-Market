@@ -6,6 +6,7 @@ import usersRouter from "./routes/users/users";
 import productsRouter from "./routes/products/products";
 import categoriesRoutes from "./routes/categries/categories";
 import path from "path";
+import productRouter from "./routes/products/product";
 
 const app = express();
 const port = 8000;
@@ -19,6 +20,7 @@ app.use('/fixtures', express.static(path.join(__dirname, 'fixtures')));
 
 app.use('/users', usersRouter);
 app.use('/products', productsRouter);
+app.use('/product', productRouter);
 app.use('/categories', categoriesRoutes);
 
 

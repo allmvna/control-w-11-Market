@@ -16,7 +16,7 @@ export const fetchProducts = createAsyncThunk<IProduct[], void>(
 export const getProductDetails = createAsyncThunk<IProduct, string>(
     "products/getProductDetails",
     async (id) => {
-        const { data } = await axiosAPI.get<IProduct>(`/products/${id}`);
+        const { data } = await axiosAPI.get<IProduct>(`/product/${id}`);
         return data;
     },
 );

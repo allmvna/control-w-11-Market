@@ -59,7 +59,7 @@ const ProductsPage = React.memo(() => {
                 {products.map((product) => (
                     <Grid size={4} key={product._id}>
                         <Link
-                            to={`/products/${product._id}`}
+                            to={`/product/${product._id}`}
                             style={{ textDecoration: "none" }}
                         >
                         <Card

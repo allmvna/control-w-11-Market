@@ -45,6 +45,7 @@ productsRouter.post("/", auth, imagesUpload.single('image'),  async (req, res, n
     }
 });
 
+
 productsRouter.get("/", async (req, res, next) => {
     try {
         const { categoryId } = req.query;
@@ -63,27 +64,6 @@ productsRouter.get("/", async (req, res, next) => {
         }
 
         res.status(200).json(products);
-    } catch (error) {
-        next(error);
-    }
-});
-
-productsRouter.get("/:id", async (req, res, next) => {
-    try {
-        const { id } = req.params;
-
-        const product = await Product.findById(id)
-            .populate("category", "name")
-            .populate("user", "displayName phoneNumber")
-            .exec();
-
-        if (!product) {
-            res.status(404).json({ message: "Product not found." });
-            return;
-        }
-
-        res.status(200).json(product);
-        return;
     } catch (error) {
         next(error);
     }

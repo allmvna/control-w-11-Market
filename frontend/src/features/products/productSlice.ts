@@ -5,7 +5,9 @@ import {addNewProduct, fetchProducts, fetchProductsByCategory, getProductDetails
 
 export interface IProduct {
     _id: string;
-    category: string;
+    category: {
+        name: string;
+    };
     user: {
         displayName: string;
         phoneNumber: string;
