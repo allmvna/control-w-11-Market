@@ -47,9 +47,18 @@ productsRouter.post("/", auth, imagesUpload.single('image'),  async (req, res, n
 
 productsRouter.get("/", async (req, res, next) => {
     try {
-        const products = await Product.find()
+        const { categoryId } = req.query;
+
+        const filter = categoryId ? { category: categoryId } : {};
+
+        const products = await Product.find(filter)
             .populate("category", "name")
             .exec();
+
+        if (products.length === 0) {
+            res.status(404).json({ message: "No products found." });
+            return;
+        }
 
         res.status(200).json(products);
     } catch (error) {
