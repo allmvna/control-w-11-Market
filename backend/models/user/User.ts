@@ -1,7 +1,7 @@
 import bcrypt from 'bcrypt';
 import mongoose, {HydratedDocument, Model} from 'mongoose';
 import {randomUUID} from "crypto";
-import {UserFields} from "../types";
+import {UserFields} from "../../types";
 
 interface UserMethods {
     checkPassword(password: string): Promise<boolean>;
@@ -31,6 +31,14 @@ const userSchema = new mongoose.Schema<HydratedDocument<UserFields>, UserModel, 
         required: true
     },
     token: {
+        type: String,
+        required: true,
+    },
+    displayName: {
+        type: String,
+        required: true,
+    },
+    phoneNumber: {
         type: String,
         required: true,
     }
