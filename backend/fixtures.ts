@@ -51,7 +51,7 @@ const run = async () => {
             description: "Powerful gaming laptop with high performance",
             price: 1500,
             category: categories[1]._id,
-            image: "gaming-laptop.webp"
+            image: "fixtures/gaming-laptop.webp"
         },
         {
             user: user[1]._id,
@@ -59,7 +59,7 @@ const run = async () => {
             description: "Lightweight and portable ultrabook for professionals",
             price: 1000,
             category: categories[1]._id,
-            image: "ultrabook.webp"
+            image: "fixtures/ultrabook.webp"
         },
         {
             user: user[1]._id,
@@ -67,7 +67,7 @@ const run = async () => {
             description: "High-performance PC for gaming and graphics work",
             price: 1800,
             category: categories[2]._id,
-            image: "gaming-pc.jpg"
+            image: "fixtures/gaming-pc.jpg"
         },
         {
             user: user[1]._id,
@@ -75,7 +75,7 @@ const run = async () => {
             description: "Professional workstation PC for content creation and design",
             price: 2000,
             category: categories[2]._id,
-            image: "work-pc.jpg"
+            image: "fixtures/work-pc.jpg"
         },
         {
             user: user[0]._id,
@@ -83,7 +83,7 @@ const run = async () => {
             description: "Processor for high performance in gaming and professional tasks",
             price: 500,
             category: categories[3]._id,
-            image: "core-9.jpg"
+            image: "fixtures/core-9.jpg"
         },
         {
             user: user[1]._id,
@@ -91,7 +91,7 @@ const run = async () => {
             description: "High-performance GPU for gaming and 3D rendering",
             price: 700,
             category: categories[3]._id,
-            image: "nvidia-4090.jpg"
+            image: "fixtures/nvidia-4090.jpg"
         },
         {
             user: user[1]._id,
@@ -99,7 +99,7 @@ const run = async () => {
             description: "High-quality monitor for professionals and gamers",
             price: 600,
             category: categories[4]._id,
-            image: "monitor-27k.jpg"
+            image: "fixtures/monitor-27k.jpg"
         },
         {
             user: user[1]._id,
@@ -107,7 +107,7 @@ const run = async () => {
             description: "34-inch ultrawide curved monitor for immersive experiences",
             price: 700,
             category: categories[4]._id,
-            image: "ultrawide.jpg"
+            image: "fixtures/ultrawide.jpg"
         },
         {
             user: user[0]._id,
@@ -115,7 +115,7 @@ const run = async () => {
             description: "Mechanical keyboard with backlighting for gaming and work",
             price: 100,
             category: categories[5]._id,
-            image: "mechanical-keyboard.jpeg"
+            image: "fixtures/mechanical-keyboard.jpeg"
         },
         {
             user: user[1]._id,
@@ -123,7 +123,7 @@ const run = async () => {
             description: "Ergonomic wireless mouse for long work sessions",
             price: 50,
             category: categories[5]._id,
-            image: "wireles-mouse.jpg"
+            image: "fixtures/wireles-mouse.jpg"
         }
     );
 

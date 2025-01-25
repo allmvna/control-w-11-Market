@@ -2,29 +2,37 @@ import {Route, Routes} from "react-router-dom";
 import AppToolbar from "./components/AppToolbar/AppToolbar.tsx";
 import RegisterPage from "./features/users/RegisterPage.tsx";
 import LoginPage from "./features/users/LoginPage.tsx";
-import Container from "@mui/material/Container";
-import {Alert} from "@mui/material";
+import {Alert, Container} from "@mui/material";
+import Grid from "@mui/material/Grid2";
 import ProductsPage from "./features/products/ProductsPage.tsx";
+import Categories from "./features/categories/Categories.tsx";
 
 const App = () => {
     return (
         <>
             <header>
-                <AppToolbar/>
+                <AppToolbar />
             </header>
             <main>
                 <Container maxWidth="xl">
-                    <Routes>
-                        <Route path="/" element={<ProductsPage />} />
-                        <Route path="/products" element={<ProductsPage />} />
-                        <Route path="/register" element={<RegisterPage />} />
-                        <Route path="/login" element={<LoginPage />} />
-                        <Route path="*" element={<Alert severity='error'>Not found pages!</Alert>} />
-                    </Routes>
+                    <Grid container spacing={4}>
+                        <Grid size={3}>
+                            <Categories />
+                        </Grid>
+                        <Grid size={9}>
+                            <Routes>
+                                <Route path="/" element={<ProductsPage />} />
+                                <Route path="products/:categoryId" element={<ProductsPage />} />
+                                <Route path="/register" element={<RegisterPage />} />
+                                <Route path="/login" element={<LoginPage />} />
+                                <Route path="*" element={<Alert severity="error">Page Not Found</Alert>} />
+                            </Routes>
+                        </Grid>
+                    </Grid>
                 </Container>
             </main>
         </>
-    )
+    );
 };
 
 export default App;
