@@ -5,7 +5,7 @@ const rootPath = __dirname;
 const config = {
     rootPath,
     publicPath: path.join(rootPath, "public"),
-    db: 'mongodb://localhost:27017/app',
+    db: 'mongodb://localhost:27017/market',
 }
 
 export default config;
