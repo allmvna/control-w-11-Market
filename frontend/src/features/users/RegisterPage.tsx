@@ -20,6 +20,8 @@ const RegisterPage = () => {
   const [form, setForm] = useState<RegisterMutation>({
     username: "",
     password: "",
+      displayName: "",
+      phoneNumber: "",
   });
 
   const dispatch = useAppDispatch();
@@ -124,6 +126,30 @@ const RegisterPage = () => {
                 }}
               />
             </Grid>
+              <Grid>
+                  <TextField
+                      required
+                      fullWidth
+                      type="text"
+                      name="displayName"
+                      label="displayName"
+                      id="displayName"
+                      value={form.displayName}
+                      onChange={inputChange}
+                  />
+              </Grid>
+              <Grid>
+                  <TextField
+                      required
+                      fullWidth
+                      type="tel"
+                      name="phoneNumber"
+                      label="phoneNumber"
+                      id="phoneNumber"
+                      value={form.phoneNumber}
+                      onChange={inputChange}
+                  />
+              </Grid>
           </Grid>
           <Button
             type="submit"

@@ -29,7 +29,7 @@ const AppToolbar = () => {
       <Container maxWidth="xl">
         <Toolbar>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            <Logo to="/">App</Logo>
+            <Logo to="/">Market</Logo>
           </Typography>
           {user ? <UserMenu user={user} /> : <AnonymousMenu />}
         </Toolbar>

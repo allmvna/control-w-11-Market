@@ -2,11 +2,15 @@ export interface UserFields {
   _id: string;
   username: string;
   token: string;
+  displayName: string;
+  phoneNumber: string;
 }
 
 export interface RegisterMutation {
   username: string;
   password: string;
+  displayName: string;
+  phoneNumber: string;
 }
 
 export interface LoginMutation {
